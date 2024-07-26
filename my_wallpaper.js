@@ -2,7 +2,9 @@
 let rect_width  = 20;
 let rect_height = 20;
 
-
+    // DEVELOP_GLYPH
+    // GRID_WALLPAPER
+    // NINE_LANDSCAPE
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(DEVELOP_GLYPH);
   pWallpaper.resolution(FIT_TO_SCREEN);
@@ -11,15 +13,15 @@ function setup_wallpaper(pWallpaper) {
   //Grid settings
   pWallpaper.grid_settings.cell_width  = 200;
   pWallpaper.grid_settings.cell_height = 200;
-  pWallpaper.grid_settings.row_offset  = 50;
+  pWallpaper.grid_settings.row_offset  = 0;
 }
 
 function wallpaper_background() {
   background(240, 255, 240); //light honeydew green colour
 }
 
-let outRectLoc = 10
-let outRectWH = 20
+let outRectLoc = 50
+let outRectWH = 100
   let inRectLoc = outRectLoc + outRectWH/4
   let inRectWH = outRectWH/2
 let connectAmount = 2
@@ -35,15 +37,27 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
   //rect(outRectLoc,(outRectLoc+outRectWH),50,100)
   //rect()
 
-  connecters(5,outRectWH)
+  connecters(5,outRectWH,0,outRectLoc)
+  connecters(5,outRectWH,outRectLoc+outRectWH,(200-outRectLoc-outRectWH))
+  
 }
 
-function connecters(start,end) {
+function connecters(start,end,place,yLength) {
   if (start>10) {start=10}
   for (let i = 0; i < start; i++) {
     var v = (i+1)/(start+2)
     var v2 = (v*end)
-    rect(v2+outRectLoc,10,outRectWH/10,outRectWH/10)
+    rect(v2+outRectLoc,place,outRectWH/15,yLength)
+    if (i===10) {break;}
+  }
+}
+
+function connecters2(start,end,place) {
+  if (start>10) {start=10}
+  for (let i = 0; i < start; i++) {
+    var v = (i+1)/(start+2)
+    var v2 = (v*end)
+    rect(v2+outRectLoc,place,outRectWH/15,outRectLoc+outRectWH/8)
     if (i===10) {break;}
   }
 }
