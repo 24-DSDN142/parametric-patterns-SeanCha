@@ -1,21 +1,22 @@
+
 //your parameter variables go here!
-let outRectLoc = 100               //Location of "microchip"
-let outRectWH = 50                  //Width of "microchip"
+let outRectLoc = 50               //Location of "microchip"
+let outRectWH = 25                  //Width of "microchip"
 let mirror = true                   //Mirror the "microchip" when outRectLoc + outRectWH is less than 100
-let connectAmount = 5               //Amount of "wires" connected to "microchip" 
-let connecterOrientation = 0        //Orientation of "wires" (1 = x axis), (2 = y axis), (3 = both)                     
-let circleSize = 6                  //Size of circles
+let connectAmount = 3               //Amount of "wires" connected to "microchip" 
+let connecterOrientation = 3        //Orientation of "wires" (1 = x axis), (2 = y axis), (3 = both)                     
+let circleSize = 5                 //Size of circles
 
 let randomCirclePos = false         //If this is false then you can manually set the positions of the circles in circlePos array, if true it will randomise the positions.
 let pairs = 10                      //Amount of pairs of circles, if randomCirclePos = true, it will use this number, if randomCirclePos = false, it will automatically choose the number based on circlePos array
 
-var circlePos = [150,50,125,90, 200,10,150,50, 190,190,125,160, 125,160,60,130, 125,90,60,130, 0,0,0,200, 20,0,20,200, 200,25,200,175, 180,25,180,175, 150,75,150,75, 150,170,160,170]
+var circlePos = [80,80,80,80, 90,80,90,100, 100,80,100,120, 110,80,110,80, 120,100,120,100, 110,120,120,110, 40,80,-40,80, 40,95,-40,120, 40,120,-20,105, -20,105,40,105, 100,40,100,40, 100,0,100,0, 100,-40,100,-40, 200,160,200,240, 160,200,240,200, 180,180,220,180, 220,180,220,220, 220,220,180,220, 180,220,180,180]
 //^^ If randomCirclePos = false, you can input the positions of the circles manually, if randomCirclePos = true, this array will be filled based on pairs variable
 
 
 function setup_wallpaper(pWallpaper) {
-  pWallpaper.output_mode(GLIDE_WALLPAPER);
-  pWallpaper.resolution(NINE_PORTRAIT);
+  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.resolution(A3);
   pWallpaper.show_guide(false); //set this to false when you're ready to print
 
   //Grid settings
@@ -24,7 +25,7 @@ function setup_wallpaper(pWallpaper) {
   pWallpaper.grid_settings.row_offset  = 0;
 }
 function wallpaper_background() {
-  background(33, 82, 194); // blue
+  background(33, 82, 194); //blue
 }
 
 
